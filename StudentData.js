@@ -176,6 +176,11 @@ let studentDetails =[{
     },
 
 ]
+let class5 =[]
+let class6 =[]
+let class7 =[]
+let class8 =[]
+let class9 =[]
 
 
 function takeTest(){
@@ -225,7 +230,6 @@ function viewResults(){
 
 
 function viewParticularPersonResults(userRollNo){
-    flag = true
     viewResults()
     studentDetails.forEach((ele) => {
         if(ele.test_Score.length){
@@ -255,9 +259,76 @@ function viewParticularPersonResults(userRollNo){
     
 }
 
+function displayClasswise() {
+    console.log("\nClass 5:");
+    console.log(`
++------+--------------------+-------+----------+------------+---------------+
+| ID   |        Name        | class | Gender   |   Marks    |  Percentage   |
++------+--------------------+-------+----------+------------+---------------+`);
+    class5.forEach((ele) => {
+        console.log(`| ${ele.roll_no}  |        ${ele.name}       |  ${ele.class}    |     ${ele.gender}    |   ${ele.totalMarks}      |      ${ele.percentage}%      |`);
+    })
+    console.log("+------+--------------------+-------+----------+------------+---------------+");
+    console.log("\nClass 6:");
+    console.log(`
++------+--------------------+-------+----------+------------+---------------+
+| ID   |        Name        | class | Gender   |   Marks    |  Percentage   |
++------+--------------------+-------+----------+------------+---------------+`);
+    class6.forEach((ele) => {
+        console.log(`| ${ele.roll_no}  |        ${ele.name}       |  ${ele.class}    |     ${ele.gender}    |   ${ele.totalMarks}      |      ${ele.percentage}%      |`);
+    })
+    console.log("+------+--------------------+-------+----------+------------+---------------+");
+    console.log("\nClass 7:");
+    console.log(`
++------+--------------------+-------+----------+------------+---------------+
+| ID   |        Name        | class | Gender   |   Marks    |  Percentage   |
++------+--------------------+-------+----------+------------+---------------+`);
+    class7.forEach((ele) => {
+        console.log(`| ${ele.roll_no}  |        ${ele.name}       |  ${ele.class}    |     ${ele.gender}    |   ${ele.totalMarks}      |      ${ele.percentage}%      |`);
+    })
+    console.log("+------+--------------------+-------+----------+------------+---------------+");
+    console.log("\nClass 8:");
+    console.log(`
++------+--------------------+-------+----------+------------+---------------+
+| ID   |        Name        | class | Gender   |   Marks    |  Percentage   |
++------+--------------------+-------+----------+------------+---------------+`);
+    class8.forEach((ele) => {
+        console.log(`| ${ele.roll_no}  |        ${ele.name}       |  ${ele.class}    |     ${ele.gender}    |   ${ele.totalMarks}      |      ${ele.percentage}%      |`);
+    })
+    console.log("+------+--------------------+-------+----------+------------+---------------+");
+    console.log("\nClass 9:");
+    console.log(`
++------+--------------------+-------+----------+------------+---------------+
+| ID   |        Name        | class | Gender   |   Marks    |  Percentage   |
++------+--------------------+-------+----------+------------+---------------+`);
+    class9.forEach((ele) => {
+        console.log(`| ${ele.roll_no}  |        ${ele.name}       |  ${ele.class}    |     ${ele.gender}    |   ${ele.totalMarks}      |      ${ele.percentage}%      |`);
+    })
+    console.log("+------+--------------------+-------+----------+------------+---------------+");
+}
+
+function viewClassWiseResults(){
+    viewResults()
+    studentDetails.forEach((ele) => {
+         
+        if(ele.class == 5){
+            class5.push(ele)
+        }else if (ele.class == 6){
+            class6.push(ele)
+        }else if (ele.class == 7){
+            class7.push(ele)
+        }else if (ele.class == 8){
+            class8.push(ele)
+        }else if (ele.class == 9){
+            class9.push(ele)
+        }
+    })
+    displayClasswise()
+}
+
 let choice = 0
-while (choice!=4) {
-    choice = readline.questionInt("1.Take Test\n2.View Results\n3.View Student Results\n4.Exit\nEnter The Above Option You Want:")
+while (choice!=5) {
+    choice = readline.questionInt("1.Take Test\n2.View Results\n3.View Student Results\n4.View ClassWise Results\n5.Exit\nEnter The Above Option You Want:")
     switch (choice) {
         case 1:
             takeTest()
@@ -270,6 +341,9 @@ while (choice!=4) {
             viewParticularPersonResults(userRollNo)
             break;
         case 4:
+            viewClassWiseResults()
+            break;
+        case 5:
             console.log("Thank You For Visiting!!\n");
             break;
         default:
