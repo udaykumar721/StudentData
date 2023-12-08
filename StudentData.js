@@ -184,12 +184,21 @@ let class9 =[]
 
 
 function takeTest(){
+    console.log(`\nStudent Details:
++------+--------------------+-------+----------+------------+---------------+
+| ID   |        Name        | class | Gender   |   Marks    |  Percentage   |
++------+--------------------+-------+----------+------------+---------------+`);
     studentDetails.forEach((ele) => {
         ele.test_Score.push({sub_name :"maths", marks:Math.floor(Math.random()*(90-30)+30)})
         ele.test_Score.push({sub_name:"physics",marks:Math.floor(Math.random()*(90-30)+30)})
         ele.test_Score.push({sub_name:"english",marks:Math.floor(Math.random()*(90-30)+30)})
-            
+        if(ele.test_Score.length){        
+            ele.totalMarks = ele.test_Score[0].marks+ele.test_Score[1].marks+ele.test_Score[2].marks
+            ele.percentage = Math.round((ele.totalMarks/300)*100)
+            console.log(`| ${ele.roll_no}  |        ${ele.name}       |  ${ele.class}    |     ${ele.gender}    |   ${ele.totalMarks}      |      ${ele.percentage}%      |`);
+        }
     });
+    console.log("+------+--------------------+-------+----------+------------+---------------+");
     
 }
 
